@@ -1,0 +1,12 @@
+name: ViSe
+title: vise
+username: doomlab
+account: doomlab
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10772735
+bundleId: 8415564
+url: https://doomlab.shinyapps.io/ViSe/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
