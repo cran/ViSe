@@ -127,7 +127,25 @@ calculate_d(
 other_to_d(nnt = 35)
 
 ## -----------------------------------------------------------------------------
-visualize_effects(d = list_values$internal_adjusted$d)
+visualize_effects(d = list_values$internal_adjusted$d,
+                  circle_color = "lightblue",
+                  circle_fill = "gray",
+                  percent_color = "darkblue",
+                  percent_size = 10,
+                  text_color = "black", 
+                  font_family = "Times")
+
+# note graphs look better scaled, try saving them 
+# ggsave(filename = "visualize_effects.png")
+
+# you can make very ugly graphs if you want
+visualize_effects(d = .2, 
+                  circle_color = "green", 
+                  circle_fill = "orange", 
+                  percent_color = "pink", 
+                  percent_size = 20, 
+                  text_color = "purple",
+                  font_family = "Arial")
 
 ## -----------------------------------------------------------------------------
 d_to_r(d = list_values$internal_adjusted$d)
@@ -137,7 +155,10 @@ probability_superiority(d = list_values$internal_adjusted$d)
 proportion_overlap(d = list_values$internal_adjusted$d)
 
 ## -----------------------------------------------------------------------------
-estimate_d(d = .09)$graph
+estimate_d(d = .09, 
+           fill_1 = "red", 
+           fill_2 = "blue", 
+           text_color = "black")$graph
 
 ## -----------------------------------------------------------------------------
 estimate_r(r = .30)$graph
@@ -152,11 +173,25 @@ visual_c_mapped <-
                   d_values = c(.2, .8),
                   nnt_values = c(60),
                   # if you think d will be positive 
-                  lower = TRUE)
+                  lower = TRUE,
+                  # as many values as the max number effects
+                  point_colors = c("red", "green", "blue"),
+                  # a size for the shapes
+                  size = 2,
+                  # shape 1
+                  shape_1 = 2,
+                  # shape 2, make these the same number if you 
+                  # want the shapes overlapping
+                  # we think two different ones helps readability 
+                  shape_2 = 3,
+                  # color of the background highlighted area 
+                  ribbon_color = "lightblue"
+                  )
 
 visual_c_mapped$graph
 
-ggsave(filename = "visualize_c_map.png", width = 8)
+ggsave(filename = "visualize_c_map.png", width = 8, 
+       height = 6, dpi = 300)
 
 # ggplotly(visual_c_mapped$graph)
 
